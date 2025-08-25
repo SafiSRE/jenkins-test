@@ -25,10 +25,5 @@ node {
     echo "Project Key: ${projectKey}"
     echo "Branch: ${branch}"
  
-    withSonarQubeEnv("${sonarEnv}") {
-      bat "dotnet ${scannerHome}\\SonarScanner.MSBuild.dll begin /k:\"${projectKey}\" /d:sonar.scanner.scanAll=false"
-      bat "dotnet build"
-      bat "dotnet ${scannerHome}\\SonarScanner.MSBuild.dll end"
-    }
   }
 }
